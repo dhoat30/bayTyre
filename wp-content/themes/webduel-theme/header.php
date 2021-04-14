@@ -15,87 +15,75 @@
 </head>
 
 <body <?php body_class( );?>>
- 
+    <!--Start Preloader-->
+    <div class="preloader">
+        <div class="d-table">
+            <div class="d-table-cell align-middle">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <section class="dk-grey-bc">
-        <div class="header row-container desktop-header">
-            <div class="logo-container">
-                <a href="/">
+    <!--start header-->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <!-- Logo -->
                     <?php 
+                    //get a logo from business info
                     $args = array(
                         'post_type' => 'business-info'
                     );
                     $query = new WP_Query( $args );
 
                     while($query->have_posts()){ 
-                        
                         $query->the_post(); 
+                       
                         $logo = get_field('logo');
-                        if( !empty( $logo ) ): ?>
-                            <img src="<?php echo esc_url($logo['url']); ?>" alt="Logo">
-                        
-                        <?php
-                        endif; 
+                        $size = 'thumbnail'; // (thumbnail, medium, large, full or custom size)
+                                              ?>
+                    <a class="logo" href="/"><img src="<?php echo $logo['sizes']["thumbnail"]; ?>" alt="<?php echo $logo['alt'];?>"></a>
+                    <?php 
                     }
                     ?>
-                    
-                </a>
-            </div>
-            <nav class="navbar-container">
-                <?php
-                wp_nav_menu(
-                        array(
-                            'theme_location' => 'nexgen_main_menu', 
-                            'container_id' => 'main-menu'
-                        ));
-                ?>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"><i class="icofont-navigation-menu"></i></span>
+                    </button>
+                    <!-- navbar links -->
+                    <div class="collapse navbar-collapse" id="navbarContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#" data-scroll-nav="0">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-scroll-nav="1">Features</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-scroll-nav="2">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-scroll-nav="3">Product</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-scroll-nav="4">Faq</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-scroll-nav="5">Testimonial</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-scroll-nav="6">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </nav>
-
-            <div class="free-consultation-container">
-                <a href="<?php echo get_site_url();?>/free-consultation" class="blue-bc button center-align center-margin white rm-dec button-radius">Book a Consultation</a>
-            </div>
         </div>
-        <div class="header row-container mobile-header">
-            <div class="logo-container">
-                <a href="/">
-                    <?php 
-                    $args = array(
-                        'post_type' => 'business-info'
-                    );
-                    $query = new WP_Query( $args );
+    </header>
+    <!--end header-->
 
-                    while($query->have_posts()){ 
-                        
-                        $query->the_post(); 
-                        $logo = get_field('logo');
-                        if( !empty( $logo ) ): ?>
-                            <img src="<?php echo esc_url($logo['url']); ?>" alt="Logo">
-                        
-                        <?php
-                        endif; 
-                    }
-                        ?>
-                </a>
-                
-            </div>
-            <div class="hamburger-menu">
-                <i class="fad fa-bars"></i>
-                <i class="fal fa-times"></i>
-            </div>
-            <nav class="navbar-container">
-                <?php
-                wp_nav_menu(
-                        array(
-                            'theme_location' => 'nexgen_main_menu', 
-                            'container_id' => 'main-menu'
-                        ));
-                ?>
-            </nav>
-          
-
-          
-        </div>
-    </section>
-    
     <?php
     ?>

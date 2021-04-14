@@ -1,9 +1,9 @@
 <?php 
  //add nav menu
- function nexgen_config(){ 
+ function baytyre_config(){ 
     register_nav_menus( 
        array(
-          "nexgen_main_menu" => "Nexgen Main Menu"
+          "baytyre_main_menu" => "Baytyre Main Menu"
        )
        );  
 
@@ -13,5 +13,5 @@
          
   }
  
-  add_action("after_setup_theme", "nexgen_config", 0);
+  add_action("after_setup_theme", "baytyre_config", 0);
 ?>
