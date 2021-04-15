@@ -26,19 +26,19 @@ function register_custom_type2(){
    ); 
 
    //projects
-   register_post_type("projects", array(
+   register_post_type("sale", array(
       "supports" => array("title"), 
       "public" => true, 
       "show_ui" => true, 
       "hierarchical" => true,
       "labels" => array(
-         "name" => "Projects", 
-         "add_new_item" => "Add New Project", 
-         "edit_item" => "Edit Project", 
-         "all_items" => "All Projects", 
-         "singular_name" => "Project"      
+         "name" => "Sales", 
+         "add_new_item" => "Add New Sale", 
+         "edit_item" => "Edit Sale", 
+         "all_items" => "All Sales", 
+         "singular_name" => "Sale"      
       ), 
-      "menu_icon" => "dashicons-hammer"
+      "menu_icon" => "dashicons-money-alt"
    )
    ); 
 
@@ -59,37 +59,38 @@ function register_custom_type2(){
    )
    ); 
 
-   //accomplishments
-   register_post_type("accomplishments", array(
+   //Frequently asked questions
+   register_post_type("faq", array(
       "supports" => array("title", "editor"), 
       "public" => true, 
       "show_ui" => true, 
       "hierarchical" => true,
       "labels" => array(
-         "name" => "Accomplishments", 
-         "add_new_item" => "Add New Accomplishment", 
-         "edit_item" => "Edit Accomplishment", 
-         "all_items" => "All Accomplishments", 
-         "singular_name" => "Accomplishment"     
+         "name" => "Faq's", 
+         "add_new_item" => "Add New Faq's", 
+         "edit_item" => "Edit Faq's", 
+         "all_items" => "All Faq's", 
+         "singular_name" => "Faq's"     
       ), 
-      "menu_icon" => "dashicons-awards"
+      "menu_icon" => "dashicons-edit
+      "
    )
    );
 
-   //accomplishments
-   register_post_type("clients", array(
-      "supports" => array("title", "thumbnail"), 
+   //banners
+   register_post_type("banner", array(
+      "supports" => array("title"), 
       "public" => true, 
       "show_ui" => true, 
       "hierarchical" => true,
       "labels" => array(
-         "name" => "Clients", 
-         "add_new_item" => "Add New Client", 
-         "edit_item" => "Edit Client", 
-         "all_items" => "All Clients", 
-         "singular_name" => "Client"     
+         "name" => "Banners", 
+         "add_new_item" => "Add New Banner", 
+         "edit_item" => "Edit Banner", 
+         "all_items" => "All Banners", 
+         "singular_name" => "Banner"     
       ), 
-      "menu_icon" => "dashicons-networking"
+      "menu_icon" => "dashicons-format-video"
    )
    );
 
@@ -163,17 +164,17 @@ function register_custom_type2(){
    );
 
    //slider 
-   register_post_type("slider", array(
+   register_post_type("hero", array(
       "supports" => array("title", 'thumbnail', 'editor'), 
       "public" => true, 
       "show_ui" => true, 
       "hierarchical" => true,
       "labels" => array(
-         "name" => "Sliders", 
-         "add_new_item" => "Add New Slider", 
-         "edit_item" => "Edit Slider", 
-         "all_items" => "All Sliders", 
-         "singular_name" => "Slider"     
+         "name" => "Heros", 
+         "add_new_item" => "Add New Hero", 
+         "edit_item" => "Edit Hero", 
+         "all_items" => "All Heros", 
+         "singular_name" => "Hero"     
       ), 
       "menu_icon" => "dashicons-format-gallery"
    )
@@ -223,14 +224,14 @@ function wpdocs_register_private_taxonomy() {
    
 
    $args2 = array(
-      'label'        => __( 'Slider Category', 'textdomain' ),
+      'label'        => __( 'Hero Category', 'textdomain' ),
       'public'       => true,
       'rewrite'      => true,
       'hierarchical' => true,
       'show_in_rest'      => true
   );
    
-  register_taxonomy( 'slider-category', 'slider', $args2 );
+  register_taxonomy( 'hero-category', 'hero', $args2 );
 
   $argsProjects = array(
    'label'        => __( 'Project Category', 'textdomain' ),

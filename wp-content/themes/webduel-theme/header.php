@@ -27,6 +27,36 @@
         </div>
     </div>
 
+    <!--start banner area-->
+    <section id="banner-area" data-scroll-index="1">
+        <div class='banner-container'>
+            <?php 
+
+                            $hero = array(
+                                'post_type' => 'banner',
+                                'posts_per_page'=>'1',
+                                'orderby' => 'date', 
+                                'order' => 'ASC'
+                            );
+                            $heroQuery = new WP_Query( $hero );
+
+                        while($heroQuery->have_posts()){ 
+                            $heroQuery->the_post(); 
+
+                            ?>
+            <p class="white-fonts">
+                <?php echo get_the_title();?>
+            </p>
+            <a href="<?php echo get_field('add_url'); ?>" class="rm-dec orange-fonts white-font-hover hover-dec"><?php echo get_field('link_text');?><i class="icofont-long-arrow-right"></i></a>
+
+            <?php 
+            }
+            wp_reset_postdata();
+            ?>
+        </div>
+    </section>
+    <!--end banner area-->   
+
     <!--start header-->
     <header id="header">
         <div class="container">
@@ -84,6 +114,6 @@
         </div>
     </header>
     <!--end header-->
-
+                 
     <?php
     ?>

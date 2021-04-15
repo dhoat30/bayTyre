@@ -1,0 +1,18 @@
+.navbar img{
+    width: 50px;
+}
+
+/* banner */
+.banner-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: rgba(24,87,104,1);
+}
+.banner-container p, a{
+    display: block;
+    margin: 0 5px;
+}

@@ -228,7 +228,7 @@ p {
 ---------------------------------------------------------------------------------------*/
 
 #header {
-    position: absolute;
+    position: relative;
     left: 0;
     top: 0;
     width: 100%;
@@ -260,7 +260,8 @@ p {
     background-color: #fff;
     -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    padding: 22px 0
+    padding: 22px 0;
+    z-index:1000 !important;
 }
 
 /*-------------------------------------------------------------------------------------
